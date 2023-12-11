@@ -17,7 +17,10 @@ app.get("/products", async (req, res) => {
 
   let limitedProducts = [];
   for (let i = 0; i < limit; i++) {
-    limitedProducts.push(products[i])
+    if (products[i]) {
+      limitedProducts.push(products[i]);
+    }
+    return res.send(limitedProducts);
   }
 });
 
@@ -25,7 +28,13 @@ app.get("/products", async (req, res) => {
 
 app.get("/products/:id", async (req, res) => {
   const { id } = req.params;
-  let products = await productManager.getProductsById(id);
+  let product = await productManager.getProductsById(id);
+
+  if (!product) {
+    return res.send("Producto no encontrado");
+  }
+
+  return res.send(product);
 });
 
 app.listen(PORT, () => {

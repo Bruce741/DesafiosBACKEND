@@ -33,7 +33,12 @@ class ProductManager {
   getProductsById = async (id) => {
     let productos = await this.getProducts();
     let productoId = productos.find((producto) => producto.id == id);
-    console.log(productoId);
+
+    if (!productoId) {
+      return null; 
+    }
+    
+    return productoId;
   };
 
   updateProduct = async (id, update) => {
