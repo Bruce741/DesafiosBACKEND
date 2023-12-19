@@ -17,6 +17,8 @@ class ProductManager {
       thumbnail: thumbnail,
       code: code,
       stock: stock,
+      available: available,
+      category: category,
       id: ProductManager.id,
     };
 
