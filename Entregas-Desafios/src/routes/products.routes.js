@@ -1,7 +1,7 @@
 import { Router } from "express";
 import ProductManager from "../productManager.js";
 
-const productManager = new ProductManager("./src/productos.json");
+const productManager = new ProductManager("../productos.json");
 
 const productsRoutes = Router();
 
@@ -46,7 +46,7 @@ productsRoutes.post("/", async (req, res) => {
       available,
       stock,
       category,
-      thumbnails,
+      thumbnail,
     } = req.body;
 
     if (
@@ -67,7 +67,7 @@ productsRoutes.post("/", async (req, res) => {
       title,
       description,
       price,
-      thumbnails,
+      thumbnail,
       code,
       stock
     );
