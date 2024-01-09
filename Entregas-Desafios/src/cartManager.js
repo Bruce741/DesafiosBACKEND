@@ -42,7 +42,7 @@ class CartManager {
     }
   };
 
-  addProductsCart = async () => {
+  addProductsCart = async (cId, pId) => {
     const carts = await this.getCarts();
     const updatedCarts = carts.map((cart) => {
       if (cart.id === +cId) {
